@@ -1,41 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoabase.c                                      :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 16:13:10 by juwong            #+#    #+#             */
-/*   Updated: 2018/08/07 16:22:03 by juwong           ###   ########.fr       */
+/*   Created: 2018/09/03 18:41:20 by juwong            #+#    #+#             */
+/*   Updated: 2018/09/04 23:53:44 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "../includes/ft_printf.h"
 
-char	*ft_itoabase(int n, int base)
+void	ft_striter2(char *s, int (*f)(int))
 {
-	char			*str;
-	int				l;
+	if (!s || !f)
+		return ;
+	while (*s)
+	{
+		*s = f(*s);
+		s++;
+	}
+}
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	l = ft_intlen(n);
-	if (n < 0)
+size_t	ft_intmax_tlen(intmax_t c)
+{
+	size_t	i;
+
+	i = 0;
+	if (c == 0)
+		return (1);
+	while (c != 0)
 	{
-		if (!(str = ft_strnew(++l)))
-			return (NULL);
-		*str = '-';
-		n = -n;
+		c = c / 10;
+		i++;
 	}
-	else if (n >= 0)
+	return (i);
+}
+
+int		ishexzero(char *s)
+{
+	while (*s)
 	{
-		if (!(str = ft_strnew(l)))
-			return (NULL);
+		if (*s != '0')
+			return (0);
+		s++;
 	}
-	while (--l >= 0 && str[l] != '-')
-	{
-		str[l] = n % base + 48;
-		n = n / base;
-	}
-	return (str);
+	return (1);
 }

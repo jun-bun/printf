@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:09 by juwong            #+#    #+#             */
-/*   Updated: 2018/06/27 20:43:50 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/01 15:29:35 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_strreverse(char *s)
 		return ;
 	i = 0;
 	last = ft_strlen(s) - 1;
-	while (i < last / 2)
+	while (i <= last / 2)
 	{
 		tmp = *(s + i);
 		*(s + i) = *(s + last - i);

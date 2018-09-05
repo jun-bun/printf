@@ -18,18 +18,18 @@
 
 # define CHECKNULL(x) if (!x) return (-1);
 
-typedef struct		s_string_var
+typedef struct	s_string_var
 {
 	size_t			words;
 	size_t			size;
 	unsigned char	delimiter;
-}					t_string_var;
-typedef struct		s_list
+}				t_string_var;
+typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-}					t_list;
+}				t_list;
 
 void			ft_swap(void *a, void *b);
 void			ft_bzero(void *s, size_t n);

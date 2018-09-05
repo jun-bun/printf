@@ -6,13 +6,13 @@
 #    By: juwong <juwong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/20 11:00:07 by juwong            #+#    #+#              #
-#    Updated: 2018/07/23 22:32:23 by juwong           ###   ########.fr        #
+#    Updated: 2018/09/01 15:05:00 by juwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 OBJECT = $(SRC:.c=.o)
-CFLAGS = -Wall -Werror -Wextra -Iincludes -c
+CFLAGS = -Wall -Werror -Wextra -Iincludes -c -g
 SRC = ft_putchar.c \
 					ft_memset.c \
 					ft_putstr.c \

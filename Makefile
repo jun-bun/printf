@@ -6,7 +6,7 @@
 #    By: juwong <juwong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/20 11:00:07 by juwong            #+#    #+#              #
-#    Updated: 2018/08/05 22:06:21 by juwong           ###   ########.fr        #
+#    Updated: 2018/09/05 03:12:04 by juwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ DIR_O = temporary
 
 HEADER = include
 
-SOURCES = ft_printf.c
+SOURCES = ft_printf.c parse_flags.c parse_string.c parse_num.c parse_unum.c \
+parse_c.c itoa_base.c helpers.c
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
