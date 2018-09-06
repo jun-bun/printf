@@ -6,7 +6,7 @@
 #    By: juwong <juwong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/20 11:00:07 by juwong            #+#    #+#              #
-#    Updated: 2018/09/05 03:12:04 by juwong           ###   ########.fr        #
+#    Updated: 2018/09/05 21:21:41 by juwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,6 @@ $(NAME): $(OBJS)
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p temporary
 	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
-
-test:
-	gcc $(FLAGS) main.c libftprintf.a
 
 norme:
 	norminette ./libft/
