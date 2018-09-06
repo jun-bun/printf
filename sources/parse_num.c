@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 15:33:27 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 03:21:43 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 19:57:19 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void		parse_num(char c, t_arg *arg, va_list ap)
 {
 	intmax_t	*num;
 
-	c = 'i' ? 'd' : c;
+	c = (c == 'i') ? 'd' : c;
 	num = (intmax_t *)malloc(sizeof(intmax_t));
 	num = get_num(c, arg, ap, num);
 	arg->format = intmax_toa(num, arg);
@@ -108,7 +108,7 @@ intmax_t	*get_num(char c, t_arg *arg, va_list ap, intmax_t *num)
 		arg->length = l;
 		num = get_num(c + 32, arg, ap, num);
 	}
-	if (arg->length == l || arg->length == p)
+	else if (arg->length == l || arg->length == p)
 		*num = (long)va_arg(ap, long);
 	else if (arg->length == hh)
 		*num = (char)va_arg(ap, int);

@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 13:26:44 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 20:01:02 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ static void	format_padding(t_arg *arg, char c)
 void		parse_string(char c, t_arg *arg, va_list ap)
 {
 	if (c == 's' && arg->length == l)
-		get_str_wchar(c, arg, ap);
+		get_str(c, arg, ap);
 	else if (c == 'S')
 	{
 		arg->length = l;
-		get_str_wchar('s', arg, ap);
+		get_str('s', arg, ap);
 	}
 	else if (c == 's')
 		get_str(c, arg, ap);
