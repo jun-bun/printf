@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 22:47:50 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 22:54:30 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void		get_str_wchar(char c, t_arg *arg, va_list ap)
 	wchar_t *str;
 	char	*out;
 
+	return ;
 	if (c == 'S' || c == 's')
 	{
 		c = 'S';
