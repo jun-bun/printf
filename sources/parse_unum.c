@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:27:11 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 16:27:13 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 18:53:50 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,13 +122,14 @@ uintmax_t		*get_unum(char c, t_arg *arg, va_list ap, uintmax_t *num)
 	{
 		arg->alternate = 1;
 		arg->length = p;
+		num = get_unum('x', arg, ap, num);
 	}
 	else if (arg->length == l || arg->length == p)
 		*num = (unsigned long)va_arg(ap, unsigned long);
 	else if (arg->length == hh)
-		*num = (short)va_arg(ap, unsigned int);
-	else if (arg->length == h)
 		*num = (unsigned char)va_arg(ap, unsigned int);
+	else if (arg->length == h)
+		*num = (unsigned short)va_arg(ap, unsigned int);
 	else if (arg->length == ll)
 		*num = (unsigned long long)va_arg(ap, unsigned long long);
 	else if (arg->length == z)
