@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 21:10:36 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 21:12:23 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,8 @@ void		get_str_wchar(char c, t_arg *arg, va_list ap)
 	{
 		str = va_arg(ap, wchar_t *);
 	}
-	printf("-%zu-", sizeof(str));
 	arg->format = ft_strdup((char *)str);
-	arg->size = 8;
+	arg->size = 4;
 	format_precision(arg, c);
 	format_padding(arg, c);
 }
