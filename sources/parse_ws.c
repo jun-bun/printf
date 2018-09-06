@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 12:29:22 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/06 13:04:22 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/06 13:09:23 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,4 @@ char	*wchars_to_str(wchar_t *in)
 		in++;
 	}
 	return (str);
-}
-
-void    	get_str_wchar(char c, t_arg *arg, va_list ap)
-{
-	wchar_t *wstr;
-	char	*str;
-
-	if (c != 'S' && arg->length != l)
-		return;
-	wstr = va_arg(ap, wchar_t *);
-	if (!wstr)
-		str = ft_strdup("(null");
-	else
-		str = wchars_to_str(wstr);
-	
-	arg->size = ft_strlen(str);
-	arg->format = ft_strdup(str);
-//	write(1, str, arg->size);
-//	ft_memcpy(arg->format, str, arg->size + 1);
 }
