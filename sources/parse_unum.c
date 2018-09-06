@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:27:11 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 18:53:50 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 19:47:05 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ static void		format_precision(t_arg *arg, char c)
 	size_t	i;
 
 	i = 0;
-	if (arg->precision == 0 && ft_atoi(arg->format) == 0)
+	if (arg->precision == 0 && ft_atoi(arg->format) == 0
+	&& arg->alternate != 1)
 	{
+		ft_strset(arg->format, 0);
 		arg->size = 0;
 		return ;
 	}
@@ -44,7 +46,7 @@ static void		format_hash(t_arg *arg, char c)
 
 	if (arg->alternate == -1)
 		return ;
-	if (ft_strchr("oO", c))
+	if (ft_strchr("oO", c) && ft_atoi(arg->format) != 0)
 	{
 		s = ft_strjoin("0", arg->format);
 		arg->size += 1;
