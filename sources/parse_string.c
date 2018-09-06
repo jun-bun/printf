@@ -6,13 +6,35 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 23:07:53 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 23:12:53 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	format_precision(t_arg *arg, char c)
+
+static size_t	ft_wstrlen(wchar_t *str)
+{
+	size_t i;
+
+	i = 0;
+	while (*str)
+	{
+		if (*str <= 0x7F)
+			i++;
+		else if (*str <= 0x7FF)
+			i += 2;
+		else if (*str <= 0xFFFF)
+			i += 3;
+		else if (*str <= 0x10FFFF)
+			i += 4;
+		str++;
+	}
+	return (i);
+}
+
+
+static void		format_precision(t_arg *arg, char c)
 {
 	char *str;
 
@@ -25,7 +47,7 @@ static void	format_precision(t_arg *arg, char c)
 	arg->size = ft_strlen(arg->format);
 }
 
-static void	format_padding(t_arg *arg, char c)
+static void		format_padding(t_arg *arg, char c)
 {
 	char *s;
 	char padding;
@@ -85,7 +107,7 @@ void		get_str_wchar(char c, t_arg *arg, va_list ap)
 	}
 	str = va_arg(ap, wchar_t *);
 	arg->format = ft_strdup((char *)str);
-	arg->size = 4;
+	arg->size = ft_wstrlen(str);
 	format_precision(arg, c);
 	format_padding(arg, c);
 }
