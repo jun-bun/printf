@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 20:01:02 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 20:08:04 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void		parse_string(char c, t_arg *arg, va_list ap)
 
 void		get_str(char c, t_arg *arg, va_list ap)
 {
-	char *str;
+	char 	*str;
 
-	if (c == 's')
+	if (c == 's' || c == 'S')
 	{
 		if (!(str = va_arg(ap, char *)))
 			str = ft_strdup("(null)");
