@@ -10,53 +10,31 @@
 #                                                                              #
 # **************************************************************************** #
 
-C = clang
-
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror -v
+SRC = sources/*.c
 
-LIBFT = libft
+HEADER = includes/*.h
 
-DIR_S = sources
+LIBFT = -L./libft -lft
 
-DIR_O = temporary
+LIB = libft
 
-HEADER = include
+all:  $(NAME)
 
-SOURCES = ft_printf.c parse_flags.c parse_string.c parse_num.c parse_unum.c \
-parse_c.c itoa_base.c helpers.c
-
-SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
-
-OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
-
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	@make -C $(LIBFT)
-	@cp libft/libft.a ./$(NAME)
-	@ar rc $(NAME) $(OBJS)
+$(NAME):
+	@gcc -g -c $(SRC) -I$(HEADER)
+	@make -C $(LIB)
+	@cp libft/libft.a $(NAME)
+	@ar rc $(NAME) *.o
 	@ranlib $(NAME)
 
-$(DIR_O)/%.o: $(DIR_S)/%.c
-	@mkdir -p temporary
-	@gcc $(FLAGS) -I $(HEADER) -o $@ -c $<
-
-norme:
-	norminette ./libft/
-	@echo
-	norminette ./$(HEADER)/
-	@echo
-	norminette ./$(DIR_S)/
-
 clean:
-	@rm -f $(OBJS)
-	@rm -rf $(DIR_O)
-	@make clean -C $(LIBFT)
+	@rm -f *.o
+	@make clean -C $(LIB)
 
 fclean: clean
 	@rm -f $(NAME)
-	@make fclean -C $(LIBFT)
+	@make fclean -C $(LIB)
 
 re: fclean all
