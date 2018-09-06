@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 20:21:43 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 20:22:56 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void		parse_string(char c, t_arg *arg, va_list ap)
 		get_str_wchar(c, arg, ap);
 	else if (c == 'S')
 	{
-		arg->length == l;
+		arg->length = l;
 		get_str_wchar('s', arg, ap);
 	}
 	else if (c == 's')
