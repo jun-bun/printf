@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/06 13:12:42 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/06 13:20:43 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void		format_padding(t_arg *arg, char c)
 	}
 }
 
-void		parse_string(char c, t_arg *arg, va_list ap)
+void			parse_string(char c, t_arg *arg, va_list ap)
 {
 	if (c == 's' && arg->length == l)
 		get_str_wchar(c, arg, ap);
@@ -60,9 +60,9 @@ void		parse_string(char c, t_arg *arg, va_list ap)
 		get_str(c, arg, ap);
 }
 
-void		get_str(char c, t_arg *arg, va_list ap)
+void			get_str(char c, t_arg *arg, va_list ap)
 {
-	char 	*str;
+	char	*str;
 
 	if (c == 's')
 	{
@@ -75,19 +75,18 @@ void		get_str(char c, t_arg *arg, va_list ap)
 	format_padding(arg, c);
 }
 
-void    	get_str_wchar(char c, t_arg *arg, va_list ap)
+void			get_str_wchar(char c, t_arg *arg, va_list ap)
 {
 	wchar_t *wstr;
 	char	*str;
 
 	if (c != 'S' && arg->length != l)
-		return;
+		return ;
 	wstr = va_arg(ap, wchar_t *);
 	if (!wstr)
 		str = ft_strdup("(null");
 	else
 		str = wchars_to_str(wstr);
-	
 	arg->size = ft_strlen(str);
 	arg->format = ft_strdup(str);
 	format_precision(arg, c);
