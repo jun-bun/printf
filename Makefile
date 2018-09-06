@@ -6,7 +6,7 @@
 #    By: juwong <juwong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/20 11:00:07 by juwong            #+#    #+#              #
-#    Updated: 2018/09/05 21:39:37 by juwong           ###   ########.fr        #
+#    Updated: 2018/09/05 21:45:38 by juwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ C = clang
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -v
 
 LIBFT = libft
 
@@ -41,7 +41,7 @@ $(NAME): $(OBJS)
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p temporary
-	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
+	@gcc $(FLAGS) -I $(HEADER) -o $@ -c $<
 
 norme:
 	norminette ./libft/
