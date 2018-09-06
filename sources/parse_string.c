@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 20:22:56 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 20:53:14 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ void		get_str(char c, t_arg *arg, va_list ap)
 
 void		get_str_wchar(char c, t_arg *arg, va_list ap)
 {
-	wchar_t *str;
+	char *str;
 
 	if (c == 'S' || c == 's')
 	{
-		if (!(str = va_arg(ap, wchar_t *)))
-			str = (wchar_t*)ft_strdup("(null)");
+		if (!(str = (char*)va_arg(ap, wchar_t *)))
+			str = ft_strdup("(null)");
 	}
 	arg->format = ft_strdup((char *)str);
 	arg->size = ft_strlen(arg->format);
