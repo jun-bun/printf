@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 20:08:04 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/05 20:11:51 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void		parse_string(char c, t_arg *arg, va_list ap)
 		get_str(c, arg, ap);
 	else if (c == 'S')
 	{
-		arg->length = l;
 		get_str('s', arg, ap);
 	}
 	else if (c == 's')
@@ -64,7 +63,7 @@ void		get_str(char c, t_arg *arg, va_list ap)
 {
 	char 	*str;
 
-	if (c == 's' || c == 'S')
+	if (c == 's')
 	{
 		if (!(str = va_arg(ap, char *)))
 			str = ft_strdup("(null)");
