@@ -6,33 +6,11 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 23:27:21 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/06 12:56:12 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-
-static size_t	ft_wstrlen(wchar_t *str)
-{
-	size_t i;
-
-	i = 0;
-	while (*str)
-	{
-		if (*str <= 0x7F)
-			i++;
-		else if (*str <= 0x7FF)
-			i += 2;
-		else if (*str <= 0xFFFF)
-			i += 3;
-		else if (*str <= 0x10FFFF)
-			i += 4;
-		str++;
-	}
-	return (i);
-}
-
 
 static void		format_precision(t_arg *arg, char c)
 {
@@ -95,18 +73,4 @@ void		get_str(char c, t_arg *arg, va_list ap)
 	arg->size = ft_strlen(arg->format);
 	format_precision(arg, c);
 	format_padding(arg, c);
-}
-
-void		get_str_wchar(char c, t_arg *arg, va_list ap)
-{
-	wchar_t *str;
-
-	if (c == 'S' || c == 's')
-	{
-		c = 'S';
-	}
-	str = va_arg(ap, wchar_t *);
-	arg->size = ft_wstrlen(str);
-	arg->format = ft_strnew(arg->size);
-	ft_memcpy(arg->format, str, arg->size);
 }

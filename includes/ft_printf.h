@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 21:33:01 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 13:26:44 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/06 13:01:02 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,13 @@ void				get_char(char c, t_arg *arg, va_list ap);
 void				get_wchar(char c, t_arg *arg, va_list ap);
 void				parse_c(char c, t_arg *arg, va_list ap);
 void				parse_percent(char c, t_arg *arg);
+
+/*
+** wide char
+*/
+int					wchar_len(wchar_t chr);
+size_t				wcharp_len(wchar_t *in);
+void				wchar_to_str(wchar_t in, char *str);
+wchar_t				*wchar_dup(wchar_t *in);
+char				*wchars_to_str(wchar_t *in);
 #endif
