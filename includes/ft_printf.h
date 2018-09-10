@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 21:33:01 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/06 13:01:02 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 19:58:09 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_arg				*init_args(void);
 */
 char				*parse_arg(t_arg *arg, va_list ap, char *str);
 char				*parse_flag(t_arg *arg, char *str);
-char				*parse_width_precision(t_arg *arg, char *str);
+char				*parse_width_precision(t_arg *arg, char *str, va_list ap);
 char				*parse_length(t_arg *arg, char *str);
 
 /*

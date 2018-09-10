@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 21:05:12 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/06 17:49:49 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 19:57:13 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*s_parse(char *str, va_list ap, int *bytes)
 	{
 		if (ft_strchr(" +-#0", *str))
 			str = parse_flag(arg, str);
-		else if ((ft_isdigit(*str)) || (*str == '.'))
-			str = parse_width_precision(arg, str);
+		else if ((ft_isdigit(*str)) || (*str == '.') || (*str == '*'))
+			str = parse_width_precision(arg, str, ap);
 		else if (ft_strchr("hljz", *str))
 			str = parse_length(arg, str);
 		else if (ft_strchr("sSpdDioOuUxXcC%bB", *str))

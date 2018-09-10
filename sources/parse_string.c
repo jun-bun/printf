@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/09 19:32:03 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 20:23:56 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void			get_str_wchar(char c, t_arg *arg, va_list ap)
 	wchar_t *wstr;
 	char	*str;
 
-	if (c != 'S' || (c == 's' && arg->length != l))
+	if (c != 'S' && arg->length != l))
 		return ;
 	wstr = va_arg(ap, wchar_t *);
 	if (!wstr)
