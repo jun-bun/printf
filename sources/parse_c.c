@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 20:43:51 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/09 19:06:54 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 19:23:02 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,13 @@ void		get_char(char c, t_arg *arg, va_list ap)
 void		get_wchar(char c, t_arg *arg, va_list ap)
 {
 	wint_t	ch;
-	int		len;
 
 	if (c == 'c' || c == 'C')
 		ch = va_arg(ap, wint_t);
 	else
 		return ;
-	
-	len = wchar_len(ch);
-	arg->format = ft_strnew(len);
-	wchar_to_str(ch, arg->format);
-	/*
 	arg->format = ft_strdup((char*)&ch);
 	arg->size = ft_strlen(arg->format);
-	*/
 }
 
 void		parse_c(char c, t_arg *arg, va_list ap)
