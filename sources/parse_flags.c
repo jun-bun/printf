@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 19:13:28 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/09 20:08:48 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 20:40:03 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ char	*parse_length(t_arg *arg, char *str)
 char	*parse_width_precision(t_arg *arg, char *str, va_list ap)
 {
 	if (*str == '*')
-	{
 		arg->width = (int)va_arg(ap, int);
-		return (++str);
-	}
 	else if (ft_isdigit(*str))
 	{
 		arg->width = ft_atoi((const char*)str);
@@ -55,14 +52,14 @@ char	*parse_width_precision(t_arg *arg, char *str, va_list ap)
 			return (str += (ft_intlen(arg->precision)));
 		}
 		else if (*str == '*')
-		{
 			arg->precision = (int)va_arg(ap, int);
-			return (++str);
-		}
 		else
+		{
 			arg->precision = 0;
+			return (str);
+		}
 	}
-	return (str);
+	return (++str);
 }
 
 char	*parse_flag(t_arg *arg, char *str)

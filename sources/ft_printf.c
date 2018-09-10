@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 21:05:12 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/09 19:57:13 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 20:40:19 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*s_parse(char *str, va_list ap, int *bytes)
 		else if (ft_strchr("sSpdDioOuUxXcC%bB", *str))
 		{
 			str = parse_arg(arg, ap, str);
-			break;
+			break ;
 		}
 		else
 			str++;
