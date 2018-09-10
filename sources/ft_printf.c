@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 21:05:12 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/05 03:21:44 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/06 17:49:49 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ char	*s_parse(char *str, va_list ap, int *bytes)
 		else if (ft_strchr("sSpdDioOuUxXcC%bB", *str))
 		{
 			str = parse_arg(arg, ap, str);
-			break ;
+			break;
 		}
 		else
 			str++;
 	}
 	write(1, arg->format, arg->size);
 	*bytes += (int)arg->size;
-	free(arg->format);
-	free(arg);
+	CHECKFREE(arg->format);
+	CHECKFREE(arg);
 	return (str);
 }
 
@@ -95,6 +95,7 @@ t_arg	*init_args(void)
 	t_arg	*arg;
 
 	arg = (t_arg*)malloc(sizeof(t_arg));
+	arg->format = 0;
 	arg->size = 0;
 	arg->align = 0;
 	arg->sign = 0;

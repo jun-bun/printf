@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 18:26:36 by juwong            #+#    #+#             */
-/*   Updated: 2018/08/05 20:43:08 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/06 17:49:33 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 
 # define CHECKNULL(x) if (!x) return (-1);
+# define CHECKFREE(x) if (x) free(x);
 
 typedef struct	s_string_var
 {
