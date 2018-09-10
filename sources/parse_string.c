@@ -6,7 +6,7 @@
 /*   By: juwong <juwong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 23:35:17 by juwong            #+#    #+#             */
-/*   Updated: 2018/09/06 17:57:39 by juwong           ###   ########.fr       */
+/*   Updated: 2018/09/09 19:27:46 by juwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,12 @@ void			get_str_wchar(char c, t_arg *arg, va_list ap)
 		return ;
 	wstr = va_arg(ap, wchar_t *);
 	if (!wstr)
-		arg->format = ft_strdup("(null");
+		str = ft_strdup("(null");
 	else
-		arg->format = wchars_to_str(wstr);
-	arg->size = ft_strlen(arg->format);
+		str = wchars_to_str(wstr);
+	arg->size = ft_strlen(str);
+	arg->format = ft_strdup(str);
 	format_precision(arg, c);
 	format_padding(arg, c);
+	free(str);
 }
